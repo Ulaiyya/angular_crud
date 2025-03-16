@@ -1,28 +1,44 @@
-<h1>Add Student Record</h1>
+<div class="h-full py-20 flex items-center justify-center">
+  <div class="relative">
+    <div class="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse"></div>
+      <div id="form-container" class="bg-white py-16 px-20 rounded-lg shadow-2xl relative z-10 transform transition duration-500 ease-in-out">
+        <h2 id="form-title" class="text-center text-3xl font-bold mb-10 text-gray-800">Add Student Record</h2>
+        <form [formGroup]="student" (ngSubmit)="handleSubmit()">
+          <div class="mb-4">
+              <label for="rollNo" class="block text-gray-700 text-sm font-bold mb-2">Roll No :</label>
+              <input type="number" placeholder="Enter Student Roll No." id="rollNo" name="rollNo"
+                  formControlName="rollNo"
+                  class="shadow appearance-none border border-gray-800 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
 
-<form [formGroup]="student" (ngSubmit)="handleSubmit()">
+          <div class="mb-4">
+              <label for="studentName" class="block text-gray-700 text-sm font-bold mb-2">Name :</label>
+              <input type="text" placeholder="Enter Student Name" id="studentName" name="name"
+                  formControlName="name"
+                  class="shadow appearance-none border border-gray-800 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
 
-    <label for="rollNo">Roll No : </label>
-    <input type="number" placeholder="Enter Student Roll No." id="rollNo" name="rollNo"
-    formControlName="rollNo"/>
-    <br><br>
+          <div class="mb-4">
+              <label for="percent" class="block text-gray-700 text-sm font-bold mb-2">Percentage :</label>
+              <input type="number" placeholder="Enter Percentage" id="percent" name="percentage"
+                  formControlName="percentage"
+                  class="shadow appearance-none border border-gray-800 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
 
-    <label for="studentName">Name : </label>
-    <input type="text" placeholder="Enter Student Name" id="studentName" name="name"
-    formControlName="name" />
-    <br><br>
+          <div class="mb-6">
+              <label for="br" class="block text-gray-700 text-sm font-bold mb-2">Branch :</label>
+              <input type="text" placeholder="Enter Branch" id="br" name="branch"
+                  formControlName="branch"
+                  class="shadow appearance-none border border-gray-800 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
 
-    <label for="percent">Percentage : </label>
-    <input type="number" placeholder="Enter Percentage" id="percent" name="percentage"
-    formControlName="percentage" />
-    <br><br>
-
-    <label for="br">Branch : </label>
-    <input type="text" placeholder="Enter Branch" id="br" name="branch"
-    formControlName="branch" />
-    <br><br>
-
-    <button type="submit">Add Student</button>
-
-</form>
- 
+          <div class="flex items-center justify-center">
+              <button type="submit"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                  Add Student
+              </button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

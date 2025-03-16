@@ -1,42 +1,48 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-student',
   templateUrl: './show-student.component.html',
   styleUrl: './show-student.component.css'
 })
-export class ShowStudentComponent implements OnInit{
-
-  constructor ( private httpclient : HttpClient ) {  }
+export class ShowStudentComponent implements OnInit {
+  
+  constructor(
+    private httpclient: HttpClient, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-      this.getAllStudentData();
+    this.getAllStudentData();
   }
 
   students: any[] = [];
 
-  getAllStudentData(){
-    const url = "http://localhost:8080/students"
+  getAllStudentData() {
+    const url = "http://localhost:8080/students";
 
-    this.httpclient.get(url).subscribe((response:any) => {
+    this.httpclient.get(url).subscribe((response: any) => {
       console.log(response);
       this.students = response;
     }, (error) => {
       console.error("Error in Fetching Record", error);
-    })};
+    });
+  }
 
-    deleteStudent(studentId:any) {
-      const url = `http://localhost:8080/student/delete/${studentId}`
+  deleteStudent(studentId: any) {
+    const url = `http://localhost:8080/student/delete/${studentId}`;
 
-      this.httpclient.delete(url).subscribe((response: any) => {
-        console.log(response);
-        this.getAllStudentData();
-      }, (error) => {
-        console.error("Error in Deleting Record", error);
-      })
+    this.httpclient.delete(url).subscribe((response: any) => {
+      console.log(response);
+      this.getAllStudentData();
+    }, (error) => {
+      console.error("Error in Deleting Record", error);
+    });
+  }
 
-    }
-
+  editStudent(student: any) {
+    this.router.navigate(['/update-student', student.rollNo]); 
+  }
 }

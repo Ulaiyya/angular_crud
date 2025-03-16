@@ -1,28 +1,31 @@
-<div class="container mx-auto mt-4">
-    <h2 class="text-center mb-4 text-2xl font-semibold">Students Records</h2>
-  
-    <table class="min-w-full border border-gray-300">
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="py-2 px-4 border-b text-left">Roll No.</th>
-          <th class="py-2 px-4 border-b text-left">Name</th>
-          <th class="py-2 px-4 border-b text-left">Percentage</th>
-          <th class="py-2 px-4 border-b text-left">Branch</th>
-          <th class="py-2 px-4 border-b text-left">Operations</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let student of students" class="border-b">
-          <td class="py-2 px-4">{{ student.rollNo }}</td>
-          <td class="py-2 px-4">{{ student.name }}</td>
-          <td class="py-2 px-4">{{ student.percentage }}%</td>
-          <td class="py-2 px-4">{{ student.branch }}</td>
-          <td class="py-2 px-4">
-            <button (click)="deleteStudent(student.rollNo)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-sm">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="container mx-auto p-10 mt-4">
+  <h2 class="text-center mb-4 text-2xl font-semibold">Students Records</h2>
+
+  <table class="min-w-full border border-gray-300">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="py-2 px-4 border-b text-left">Roll No.</th>
+        <th class="py-2 px-4 border-b text-left">Name</th>
+        <th class="py-2 px-4 border-b text-left">Percentage</th>
+        <th class="py-2 px-4 border-b text-left">Branch</th>
+        <th class="py-2 px-4 border-b text-left">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students" class="border-b">
+        <td class="py-2 px-4">{{ student.rollNo }}</td>
+        <td class="py-2 px-4">{{ student.name }}</td>
+        <td class="py-2 px-4">{{ student.percentage }}%</td>
+        <td class="py-2 px-4">{{ student.branch }}</td>
+        <td class="py-2 px-4">
+          <button (click)="deleteStudent(student.rollNo)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-sm">
+            Delete
+          </button>
+          <button (click)="editStudent(student)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-sm ml-2">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
